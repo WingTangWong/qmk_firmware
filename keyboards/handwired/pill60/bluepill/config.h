@@ -16,9 +16,65 @@
 
 #pragma once
 
+#define HAL_USE_SERIAL TRUE
+#define EE_HANDS
+
+#define SOFT_SERIAL_PIN C14        // USART TX pin
+//#define USART1_REMAP             // Remap USART TX and RX pins on STM32F103 MCUs, see table below.
+#define SELECT_SOFT_SERIAL_SPEED 1 // or 0, 2, 3, 4, 5
+                                   //  0: about 460800 baud
+                                   //  1: about 230400 baud (default)
+                                   //  2: about 115200 baud
+                                   //  3: about 57600 baud
+                                   //  4: about 38400 baud
+                                   //  5: about 19200 baud
+#define SERIAL_USART_DRIVER SD1    // USART driver of TX pin. default: SD1
+#define SERIAL_USART_TX_PAL_MODE 7 // Pin "alternate function", see the respective datasheet for the appropriate values for your MCU. default: 7
+#define SERIAL_USART_TIMEOUT 20    // USART driver timeout. default 20
+
+/*
 #define MATRIX_COL_PINS \
     { A8, B11, B10, B15, A10, A1, A2, A3, A4, A5, A6, A7, B0, B1 }
+
 #define MATRIX_ROW_PINS \
     { B4, B3, A15, B13, B5 }
+*/
+
+#ifdef MATRIX_ROWS
+#undef MATRIX_ROWS
+#define MATRIX_ROWS 10
+#endif
+
+#define MATRIX_COL_PINS { A1, A2, A3, A4, A5 }
+// Double up the Row pins...
+#define MATRIX_ROW_PINS { A6, A7, B0, B1, B10 , A6, A7, B0, B1, B10 }
+
+// I2C pins:
+// B8 SCL
+// B9 SDA
+// I2C pins
+// B6 SCL
+// B7 SDA
+
+// #define I2C1_SCL B6
+// #define I2C1_SDA B7
+
+// #define OLED_DISPLAY_ADDRESS 0x3C
+// #define OLED_DISPLAY_ADDRESS 0x3D
+#define OLED_DISPLAY_128X64
+
+#define RGB_DI_PIN A9
+#define RGBLED_NUM 3
+// #define WS2812_TRST_US 290
+// #define WS2812_SPI_USE_CIRCULAR_BUFFER
+
+#define RGBLIGHT_ANIMATIONS
+
+// #define RGBLED_SPLIT
+// (Optional) For split keyboards, the number of LEDs connected on each half directly wired to RGB_DI_PIN
+
+#define ENCODERS_PAD_A { A11 }
+#define ENCODERS_PAD_B { A12 }
+
 #define UNUSED_PINS \
-    { A0, A9, A11, A12, C13, C14, C15 }
+    { C15 }

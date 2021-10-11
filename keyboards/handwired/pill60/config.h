@@ -18,29 +18,41 @@
 #include "config_common.h"
 
 #define VENDOR_ID 0x4454
-#define PRODUCT_ID 0x5444
-#define DEVICE_VER 0x0001
 
-#define MANUFACTURER "IktaS"
-#define PRODUCT "Pill60"
+// #define PRODUCT_ID 0x5444
+// #define DEVICE_VER 0x0001
 
-#define MATRIX_ROWS 5
-#define MATRIX_COLS 14
+#define PRODUCT_ID   0x3435
+#define DEVICE_VER   0x0011
+
+// #define MANUFACTURER tshort
+
+// #define MANUFACTURER "IktaS"
+// #define PRODUCT "Pill60"
+
+#define MANUFACTURER "WTC"
+#define PRODUCT "BluePillDactylManuform4x5"
+
+#define MATRIX_ROWS 10
+#define MATRIX_COLS 5
 #define DIODE_DIRECTION COL2ROW
 
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCE 1
+#define DEBOUNCE 2
 
 /* Backlighting include */
-#define BACKLIGHT_PIN           B14
+// #define BACKLIGHT_PIN           B14
+#define BACKLIGHT_PIN           C13
 #define BACKLIGHT_PWM_DRIVER    PWMD5
 #define BACKLIGHT_PWM_CHANNEL   1
 #define BACKLIGHT_LEVELS        5
 #define BREATHING_PERIOD        6
 
 /* Encoder */
+/*
 #define ENCODERS_PAD_A \
     { B9 }
 #define ENCODERS_PAD_B \
     { B8 }
 #define ENCODER_RESOLUTION 2
+*/
