@@ -1,15 +1,17 @@
-# MCU name
+# MCU name BluePill
 MCU = STM32F103
 
 # Bootloader selection
 BOOTLOADER = stm32duino
 
-SPLIT_KEYBOARD = yes
+SPLIT_KEYBOARD  = yes
 SPLIT_TRANSPORT = serial
-
-SERIAL_DRIVER  = usart
-CONSOLE_ENABLE =yes
-COMMAND_ENABLE =yes
+# SERIAL_DRIVER   = hardware
+# SERIAL_DRIVER   = bitbang
+# SERIAL_DRIVER   = uart
+SERIAL_DRIVER   = usart
+CONSOLE_ENABLE  = yes
+COMMAND_ENABLE  = yes
 
 # Enter lower-power sleep mode when on the ChibiOS idle thread
 OPT_DEFS += -DCORTEX_ENABLE_WFI_IDLE=TRUE

@@ -45,15 +45,12 @@ void oled_task_user(void) {
             break;
         case _BASE:
             oled_write_P(PSTR("BASE\n"), false);
-            rgblight_setrgb(RGB_WHITE);
             break;
         case _RAISE:
             oled_write_P(PSTR("RAISE\n"), false);
-            rgblight_setrgb(RGB_ORANGE);
             break;
         case _LOWER:
             oled_write_P(PSTR("LOWER\n"), false);
-            rgblight_setrgb(RGB_PURPLE);
             break;
 
         default:
@@ -74,17 +71,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case RAISE:
       if (record->event.pressed) {
         layer_move(_RAISE);
+        rgblight_setrgb(RGB_PURPLE);
         // Do something when pressed
       } else {
         // Do something else when release
+        rgblight_setrgb(RGB_ORANGE);
       }
       return false;
     case LOWER:
       if (record->event.pressed) {
         // Do something when pressed
         layer_move(_LOWER);
+        rgblight_setrgb(RGB_WHITE);
       } else {
         // Do something else when release
+        rgblight_setrgb(RGB_ORANGE);
       }
       return false;
     case FOO:
@@ -317,6 +318,6 @@ void keyboard_post_init_user(void) {
   // Customise these values to desired behaviour
   debug_enable=true;
   debug_matrix=true;
-  //debug_keyboard=true;
+  debug_keyboard=true;
   //debug_mouse=true;
 }
