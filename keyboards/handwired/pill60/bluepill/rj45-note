@@ -1,0 +1,33 @@
+# Note about RJ45 Straight Through and Cross Over
+
+Pin - Pair - Color         Pairs
+1   - 3    - Striped_Green Striped_Orange
+2   - 6    - Solid_Green   Solid_Orange
+3   - 1    - Striped_green striped_orange
+4   - 4    - solid_blue    solid_blue
+5   - 5    - striped_bue   striped_blue
+6   - 2    - solid_green   solid_orange
+7   - 7    - striped_brown striped_brown
+8   - 8    - solid_brown   solid_brown
+
+So, taking into account the swaps and commons, we can wire up RJ45 jacks
+to serve as working with straight through and cross-over cables as:
+
+# 6 conductors
+
+## cross-over pair (1,3)
+
+1 - RX/TX - PA9  - USART1
+3 - TX/RX - PA10 - USART1
+
+## cross-over pair (2,6)
+
+2 - Left unused
+6 - Left unused
+
+## Straight Through pins
+
+4:4 CAN BUS RX PB8 ??? I2C-SDA B9 B7
+5:5 CAN BUS TX PB9 ??? I2C-SCL B8 B6
+7:7 VCC
+8:8 GND
